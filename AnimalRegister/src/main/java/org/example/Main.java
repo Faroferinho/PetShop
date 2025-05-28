@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @OpenAPIDefinition(
         info = @Info(
-                title = "Controle de Clientes",
-                description = "Sistema de Gerenciamento e Controle de clientes",
+                title = "Controle de Animais",
+                description = "Sistema de Gerenciamento e Controle de animais que vão passar por serviços no PetShop.",
                 version = "1.0.0"
         ), security = @SecurityRequirement(
             name = "bearerAuth"
