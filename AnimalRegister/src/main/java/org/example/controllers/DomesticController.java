@@ -27,8 +27,10 @@ public class DomesticController implements CRUDController<Domestic, DomesticDTO>
     public ResponseEntity<Domestic> create(@RequestHeader(value = "Authorization") String token, @RequestBody DomesticDTO domesticDTO) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
+            System.out.println("Validate = " + Constants.VALIDATE);
 
             ResponseEntity<Boolean> response = restTemplate.exchange(
                     Constants.VALIDATE,
@@ -53,6 +55,7 @@ public class DomesticController implements CRUDController<Domestic, DomesticDTO>
     public ResponseEntity<List<Domestic>> findAll(@RequestHeader(value = "Authorization") String token) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -77,6 +80,7 @@ public class DomesticController implements CRUDController<Domestic, DomesticDTO>
     public ResponseEntity<Optional<Domestic>> findById(@RequestHeader(value = "Authorization") String token, @PathVariable String id) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -101,6 +105,7 @@ public class DomesticController implements CRUDController<Domestic, DomesticDTO>
     public ResponseEntity<Void> deleteById(@RequestHeader(value = "Authorization") String token, @PathVariable String id) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 

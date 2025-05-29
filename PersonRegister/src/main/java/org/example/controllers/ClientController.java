@@ -60,6 +60,7 @@ public class ClientController implements CRUDController<Client, ClientDTO> {
     public ResponseEntity<List<Client>> findAll(@RequestHeader(value = "Authorization") String token) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -84,6 +85,7 @@ public class ClientController implements CRUDController<Client, ClientDTO> {
     public ResponseEntity<Optional<Client>> findById(@RequestHeader(value = "Authorization") String token, @PathVariable String id) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -108,6 +110,7 @@ public class ClientController implements CRUDController<Client, ClientDTO> {
     public ResponseEntity<Void> deleteById(@RequestHeader(value = "Authorization") String token, @PathVariable String id) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 

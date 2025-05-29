@@ -24,8 +24,11 @@ public class MaintenanceController implements CRUDController<Maintenance, Mainte
     @Override
     @PostMapping(Constants.MAINTENANCE)
     public ResponseEntity<Maintenance> create(@RequestHeader(value = "Authorization") String token, @RequestBody MaintenanceDTO maintenanceDTO) {
+        System.out.println("Maintanace:\n" + maintenanceDTO.getType() + " | " + maintenanceDTO.getComment() + " | " + maintenanceDTO.getDate() + " | " + maintenanceDTO.getValue());
+
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -35,6 +38,8 @@ public class MaintenanceController implements CRUDController<Maintenance, Mainte
                     entity,
                     Boolean.class
             );
+
+            System.out.println("Token:" + token + " \n");
 
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
                 Maintenance m = services.save(maintenanceDTO);
@@ -52,6 +57,7 @@ public class MaintenanceController implements CRUDController<Maintenance, Mainte
     public ResponseEntity<List<Maintenance>> findAll(@RequestHeader(value = "Authorization") String token) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -76,6 +82,7 @@ public class MaintenanceController implements CRUDController<Maintenance, Mainte
     public ResponseEntity<Optional<Maintenance>> findById(@RequestHeader(value = "Authorization") String token, @PathVariable String id) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 
@@ -100,6 +107,7 @@ public class MaintenanceController implements CRUDController<Maintenance, Mainte
     public ResponseEntity<Void> deleteById(@RequestHeader(value = "Authorization") String token, @PathVariable String id) {
         try{
             headers.set("Content-Type", "application/json");
+            headers.set("Authorization", "Bearer " + token);
 
             HttpEntity<Boolean> entity = new HttpEntity<>(headers);
 

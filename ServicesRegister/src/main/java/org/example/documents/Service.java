@@ -1,5 +1,6 @@
 package org.example.documents;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.documents.DTO.ServiceDTO;
@@ -11,6 +12,7 @@ import java.util.Date;
 public abstract class Service {
     private String id;
     private String type;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private BigDecimal value;
     private String comment;

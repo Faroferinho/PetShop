@@ -50,7 +50,7 @@ public class AuthenticationController {
     }
 
     @GetMapping(Constants.VALIDATE)
-    public Boolean isTokenValid(@RequestHeader String token){
+    public Boolean isTokenValid(@RequestHeader(value = "Authorization") String token){
         return provider.validateToken(token);
     }
 }
