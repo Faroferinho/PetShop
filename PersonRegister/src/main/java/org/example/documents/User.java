@@ -11,7 +11,12 @@ public abstract class User {
     private String email;
     private String password;
 
-    public User(String name, String email, String password){
+    public User(){
+
+    }
+
+    public User(String id, String name, String email, String password){
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -20,6 +25,7 @@ public abstract class User {
     public User(UserDTO dto){
         name = dto.getName();
         email = dto.getEmail();
-        password = getPassword();
+        password = dto.getPassword();
+        System.out.println("Salvar Senha:" + dto.getPassword() + " | " + password);
     }
 }

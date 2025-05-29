@@ -10,10 +10,16 @@ import java.util.Date;
 @Document
 @Getter @Setter
 public class Client extends User{
-    private Date date;
+
+    public Client(){
+        super();
+    }
+
+    public Client(String id, String name, String email, String password) {
+        super(id, name, email, password);
+    }
 
     public Client(ClientDTO dto){
         super(dto);
-        date = dto.getDate();
     }
 }

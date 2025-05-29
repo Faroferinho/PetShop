@@ -14,7 +14,7 @@ public class Domestic extends Animal{
         super();
     }
 
-    public Domestic(String id, String name, String species, String age, char size, String comments, String master){
+    public Domestic(String id, String name, String species, int age, char size, String comments, String master){
         super(id, name, species, age, size, comments);
         this.master = master;
     }

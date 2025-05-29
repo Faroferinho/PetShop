@@ -14,7 +14,7 @@ public class Farm extends Animal{
 
     }
 
-    public Farm(String id, String name, String species, String age, char size, String comments, String farm){
+    public Farm(String id, String name, String species, int age, char size, String comments, String farm){
         super(id, name, species, age, size, comments);
         this.farm = farm;
     }

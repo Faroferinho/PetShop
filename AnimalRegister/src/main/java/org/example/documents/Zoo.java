@@ -14,7 +14,7 @@ public class Zoo extends Animal{
 
     }
 
-    public Zoo(String id, String name, String species, String age, char size, String comments, String zoo){
+    public Zoo(String id, String name, String species, int age, char size, String comments, String zoo){
         super(id, name, species, age, size, comments);
         this.zoo = zoo;
     }

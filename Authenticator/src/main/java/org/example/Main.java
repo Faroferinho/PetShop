@@ -11,12 +11,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @OpenAPIDefinition(
         info = @Info(
-                title = "Controle de Clientes",
-                description = "Sistema de Gerenciamento e Controle de Clientes e Funcionarios",
+                title = "Controle de Autenticação",
+                description = "Sistema de Gerenciamento de APIs",
                 version = "1.0.0"
-        ), security = @SecurityRequirement(
-            name = "bearerAuth"
-        )
+        ),security = @SecurityRequirement(
+                name = "bearerAuth"
+    )
 )
 @SecurityScheme(
         name = "bearerAuth",

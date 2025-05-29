@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Veterinarian extends User{
     private String phone;
 
-    public Veterinarian(String name, String email, String password, String phone) {
-        super(name, email, password);
+    public Veterinarian(String id, String name, String email, String password, String phone) {
+        super(id, name, email, password);
         this.phone = phone;
     }
 

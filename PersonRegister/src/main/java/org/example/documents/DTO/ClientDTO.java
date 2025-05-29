@@ -7,5 +7,4 @@ import java.util.Date;
 
 @Getter @Setter
 public class ClientDTO extends UserDTO{
-    private Date date;
 }

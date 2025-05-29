@@ -17,6 +17,7 @@ public class ClientService implements CRUDServices<Client, ClientDTO> {
 
     @Override
     public Client save(ClientDTO clientDTO) {
+        System.out.println("Cliente:\n" + clientDTO.getName() + " | " + clientDTO.getEmail() + " | " + clientDTO.getPassword());
         return repository.save(new Client(clientDTO));
     }
 
@@ -34,4 +35,26 @@ public class ClientService implements CRUDServices<Client, ClientDTO> {
     public void deleteByID(String id) {
         repository.deleteById(id);
     }
+
+    public Client getUser(String email){
+        List<Client> clients = findAll();
+        for (Client c : clients){
+            if (c.getEmail().equals(email)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public boolean validateUser(String email, String password){
+        System.out.println("Validating user " + email + " | " + password);
+        Client c = getUser(email);
+
+        if (c != null){
+            return c.getPassword().equals(password);
+        }
+
+        return false;
+    }
+
 }

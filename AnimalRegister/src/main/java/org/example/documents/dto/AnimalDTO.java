@@ -7,7 +7,7 @@ import lombok.Setter;
 public abstract class AnimalDTO {
     private String name;
     private String species;
-    private String age;
+    private int age;
     private char size;
     private String comments;
 }

@@ -9,7 +9,7 @@ public abstract class Animal {
     private String id;
     private String name;
     private String species;
-    private String age;
+    private int age;
     private char size;
     private String comments;
 
@@ -17,7 +17,7 @@ public abstract class Animal {
 
     }
 
-    public Animal(String id, String name, String species, String age, char size, String comments){
+    public Animal(String id, String name, String species, int age, char size, String comments){
         this.id = id;
         this.name = name;
         this.species = species;
