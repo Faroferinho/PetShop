@@ -11,6 +11,7 @@ public class Constants {
 
     public static final String SERVICES = "http://localhost:8083/";
 
+    public static final String VALIDATE = URL + "validate";
 
     public static final long VALIDITY = 3600000;
 }

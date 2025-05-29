@@ -5,10 +5,7 @@ import org.example.safety.Constants;
 import org.example.safety.JWTTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -20,7 +17,7 @@ public class AuthenticationController {
     private JWTTokenProvider provider;
 
     private RestTemplate restTemplate = new RestTemplate();
-    HttpHeaders headers = new HttpHeaders();
+    private HttpHeaders headers = new HttpHeaders();
 
     @PostMapping(Constants.LOGIN)
     public String validateUser(@RequestBody LoginDTO dto){
@@ -50,5 +47,10 @@ public class AuthenticationController {
             System.err.println("Error trying to validate User\n" + e.getMessage());
         }
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect User or Password");
+    }
+
+    @GetMapping(Constants.VALIDATE)
+    public Boolean isTokenValid(@RequestHeader String token){
+        return provider.validateToken(token);
     }
 }
